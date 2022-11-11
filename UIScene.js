@@ -22,7 +22,7 @@ export default class UIScene extends Phaser.Scene {
 
         this.worldScene.events.on(
             'updateTiredness',
-            (tiredness, highscore = this.highscore) => {
+            (tiredness, highscore = this.highscorew) => {
                 this.highscore = highscore
                 this.scoreText.setText(`Score: ${highscore}`)
                 this.barFull.setCrop(

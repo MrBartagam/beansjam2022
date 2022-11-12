@@ -1,6 +1,7 @@
-import World from './World.js'
-import UIScene from './UIScene.js'
-import GameOver from './GameOver.js'
+import World from './scenes/World.js'
+import UIScene from './scenes/UIScene.js'
+import GameOver from './scenes/GameOver.js'
+import StartMenu from './scenes/StartMenu.js'
 
 new Phaser.Game({
     type: Phaser.AUTO,
@@ -23,5 +24,5 @@ new Phaser.Game({
         width: 1280,
         height: 720
     },
-    scene: [World, GameOver, UIScene]
+    scene: [StartMenu,World, GameOver, UIScene]
 })

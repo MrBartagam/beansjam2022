@@ -1,9 +1,9 @@
-import Player from './objects/Player.js'
-import Coffee from './objects/Coffee.js'
-import Obstacle from './objects/Obstacle.js'
+import Player from '../objects/Player.js'
+import Coffee from '../objects/Coffee.js'
+import Obstacle from '../objects/Obstacle.js'
 
 const client = new tmi.Client({
-    channels: ['dropmaniagaming']
+    channels: ['dropmaniagaming','mrbartagam']
 })
 
 client.connect()
@@ -13,7 +13,7 @@ export default class Level extends Phaser.Scene {
         super()
         this.game = game
         Phaser.Scene.call(this, { key: 'World' })
-        this.highscore = 0
+        
     }
     preload() {
         this.load.image('bohne', '/assets/img/bohne.png')
@@ -26,6 +26,9 @@ export default class Level extends Phaser.Scene {
         this.load.image('table1', '/assets/img/table1.png')
     }
     create() {
+
+        // this.uiSceneScene = this.scene.get('UIScene')
+        // this.uiSceneScene.scene.setActive(true)
         this.keys = this.input.keyboard.addKeys({
             left: Phaser.Input.Keyboard.KeyCodes.A,
             right: Phaser.Input.Keyboard.KeyCodes.D,
@@ -83,11 +86,14 @@ export default class Level extends Phaser.Scene {
             if (this.player.tiredness > 30) {
                 this.player.tiredness = 30
             }
-            this.highscore++
+
             this.events.emit(
                 'updateTiredness',
                 this.player.tiredness,
-                this.highscore
+            )
+            this.events.emit(
+                'updateHighscore',
+                bohne.baseValue,
             )
 
             bohne.destroy()

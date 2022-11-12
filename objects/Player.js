@@ -5,7 +5,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.scene.add.existing(this)
         this.scene.physics.add.existing(this)
         this.body.setCollideWorldBounds(true)
-        this.tiredness = 30
+        this.tiredness = 5
         this.scene.time.addEvent({
             delay: 1000,
             callback: () => {
